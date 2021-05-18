@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkTriangles() {
+            var a = parseInt(document.getElementById("input-edge1").value);
+            var b = parseInt(document.getElementById("input-edge2").value);
+            var c = parseInt(document.getElementById("input-edge3").value);
+            var p = (a+b+c)/2;
+            if (a+b>c && a+c>b && b+c>a) {
+                var s = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+                s = s.toFixed(1);
+                document.getElementById("result").value = s;
+            } else {
+                document.getElementById("result").value = "Đây không phải là một tam giác";
+            }
+        }
+    </script>
+    <div class="main">
+        <form action="" name="myForm" method="post" >
+            <label for="input-edge1">Nhập cạnh a: </label>
+            <input type="number" name="input-edge1" id="input-edge1"><br>
+            <label for="input-edge2">Nhập cạnh b: </label>
+            <input type="number" name="input-edge2" id="input-edge2"><br>
+            <label for="input-edge3">Nhập cạnh c: </label>
+            <input type="number" name="input-edge3" id="input-edge3"><br>
+            <label for="result">Kết quả:</label>
+            <input type="text" style="margin-left: 29px;" name="result" id="result"><br>
+            <input type="button" value="Tính" onclick="checkTriangles()"/><br>
+        </form>
+    </div>
+</body>
+</html>
